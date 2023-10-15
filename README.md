@@ -209,83 +209,123 @@
 
 
 
+# یک مثال کدی (coding practices)
+این کد به زبان برنامه نویسی Python نوشته شده است و از کتابخانه‌های Pandas و scikit-learn (یک کتابخانه معروف برای یادگیری ماشین در Python) استفاده می‌کنند.
 
+## 11111
 
 
 
+```Python 
+import pandas as pd
+from sklearn.tree import DecisionTreeClassifier
 
+music_data = pd.read csv ( 'music.csv' )
+X = music data.drop(columns= [ 'genre' ])
+y = music datal 'genre']
 
+model = DecisionTreeClassifier ( )
+model.fit (X, Y)
 
+predictions = model.predict (( (21, 1]])
+```
+این کد به زبان برنامه نویسی Python نوشته شده است و از کتابخانه‌های Pandas و scikit-learn (یک کتابخانه معروف برای یادگیری ماشین در Python) استفاده می‌کند.
+1. **خواندن داده**: با استفاده از Pandas، داده‌ها از یک فایل با فرمت CSV با نام "music.csv" خوانده می‌شوند و در متغیر music_data ذخیره می‌شوند.
 
+2. **تقسیم داده**: داده‌ها به دو بخش تقسیم می‌شوند. ورودی‌ها (X) که شامل ویژگی‌های موسیقی مانند سنگسری و بیت و خروجی (y) که مشخص‌کننده ژانر موسیقی است.
 
+3. **ساخت مدل**: یک مدل تصمیم‌گیری ایجاد می‌شود با استفاده از کلاس `DecisionTreeClassifier` از scikit-learn.
 
+4. **آموزش مدل**: مدل تصمیم‌گیری با استفاده از داده‌های ورودی (X) و خروجی (y) آموزش داده می‌شود با استفاده از `model.fit(X, Y)`.
 
+5. **پیش‌بینی**: در نهایت، از مدل برای پیش‌بینی ژانر موسیقی برای مجموعه ورودی جدیدی (21 و 1) استفاده می‌شود و پیش‌بینی‌ها در متغیر `predictions` ذخیره می‌شوند.
 
 
+## 2222
 
+```Python 
+import pandas as pd
+from sklearn. tree import DecisionTreeClassifier
+from sklearn, model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+music_data = pd.read csv('music. csv')
+X = music_data.drop(columns=['genre'])
+y = music data['genre']
+X_train, X_test, y_train, _test = train_test_split(X, y, test_size=0.2)
 
+model = DecisionTreeClassifier ( )
+model.fit (X_train, y_train)
+predictions = model.predict(X_test)
+accuracy_score (y_test, predictions)
+```
+این کد نیز به زبان برنامه نویسی Python نوشته شده و از کتابخانه‌های مختلفی برای مدیریت داده و آموزش مدل استفاده می‌کند. در اینجا خلاصه کد آمده است:
 
+1. **خواندن داده**: با استفاده از کتابخانه Pandas، داده‌ها از یک فایل با فرمت CSV با نام "music.csv" خوانده می‌شوند و در متغیر `music_data` ذخیره می‌شوند.
 
+2. **تقسیم داده**: داده‌ها به دو بخش تقسیم می‌شوند. ورودی‌ها (X) که شامل ویژگی‌های موسیقی مانند سنگسری و بیت هستند و خروجی (y) که مشخص‌کننده ژانر موسیقی است.
 
+3. **تقسیم داده به دو مجموعه**: با استفاده از `train_test_split` از scikit-learn، داده‌های ورودی و خروجی به دو مجموعه آموزش (X_train و y_train) و آزمون (X_test و y_test) تقسیم می‌شوند. مجموعه آزمون 20% از داده‌ها را تشکیل می‌دهد.
 
+4. **ساخت مدل**: یک مدل تصمیم‌گیری ایجاد می‌شود با استفاده از کلاس `DecisionTreeClassifier` از scikit-learn.
 
+5. **آموزش مدل**: مدل تصمیم‌گیری با استفاده از داده‌های مجموعه آموزش (X_train و y_train) آموزش داده می‌شود با استفاده از `model.fit(X_train, y_train)`.
 
+6. **پیش‌بینی**: مدل برای پیش‌بینی ژانر موسیقی برای داده‌های مجموعه آزمون (X_test) استفاده می‌شود و پیش‌بینی‌ها در متغیر `predictions` ذخیره می‌شوند.
 
+7. **محاسبه دقت**: با استفاده از `accuracy_score` از scikit-learn، دقت پیش‌بینی‌ها محاسبه می‌شود و به ترتیب مقدار واقعی‌ها (y_test) و پیش‌بینی‌ها (predictions) به عنوان ورودی به تابع داده می‌شوند. مقدار دقت در نهایت چاپ می‌شود.
 
+## 3333
 
+```Python 
+import pandas as pd
+from sklearn. tree import DecisionTreeClassifier from sklearn, model_selection import train_test_split
+from sklearn.externals import joblib
+# music data = pd. read csv( 'music.csv')
+# X = music data. drop(columns=/ 'genre ' ])
+# y = music
+datal 'genre')
+# model = DecisionTreeClassifier ( )
+# model.fit (X, y)
+model = joblib. load( 'music-recommender.joblib')
+predictions = model.predict (((21, 1]])
+predictions
+```
 
+1. **خواندن کتابخانه‌ها و مدل آماده**: ابتدا کتابخانه‌های مورد نیاز را وارد می‌کنید، از جمله Pandas برای مدیریت داده، `DecisionTreeClassifier` از scikit-learn برای مدل تصمیم‌گیری و `joblib` برای مدیریت مدل‌ها.
 
+2. **بارگذاری مدل**: با استفاده از `joblib.load` مدل آموزش دیده‌شده از یک فایل با نام "music-recommender.joblib" بارگذاری می‌شود و در متغیر `model` ذخیره می‌شود.
 
+3. **پیش‌بینی**: مدل برای پیش‌بینی ژانر موسیقی برای مجموعه ورودی جدیدی (21 و 1) استفاده می‌شود و پیش‌بینی‌ها در متغیر `predictions` ذخیره می‌شوند.
 
+4. **چاپ نتیجه پیش‌بینی**: نتیجه پیش‌بینی‌ها در نهایت چاپ می‌شود.
 
 
 
+## 4444
 
+```Python 
+music_data = pd.read csv( 'music.csv' )
+X = music_ data.drop (columns= ( 'genre' j)
+y = music data 'genre' J
 
+model = DecisionTreeClassifier ( )
+model.fit (X, y)
 
+tree.export graphviz (model, out_file= 'music-recommender.dot',
+             feature names= ['age', 'gender'],
+             class names=sorted(y.unique ( )),
+             label='all',
+             rounded=True,
+             filled=True)
+```
 
+1. **خواندن داده**: داده‌ها از یک فایل با فرمت CSV به نام "music.csv" با استفاده از Pandas خوانده می‌شوند و در متغیر `music_data` ذخیره می‌شوند.
 
+2. **تقسیم داده**: داده‌ها به دو بخش تقسیم می‌شوند. ورودی‌ها (X) که شامل ویژگی‌های موسیقی مانند سن و جنسیت هستند و خروجی (y) که مشخص‌کننده ژانر موسیقی است.
 
+3. **ساخت مدل**: یک مدل تصمیم‌گیری ایجاد می‌شود با استفاده از کلاس `DecisionTreeClassifier` از scikit-learn و با استفاده از داده‌های ورودی (X) و خروجی (y) آموزش داده می‌شود با `model.fit(X, y)`.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+4. **تولید نمودار درخت تصمیم**: با استفاده از کتابخانه Graphviz، نمودار درخت تصمیم از مدل ساخته شده تولید می‌شود. ویژگی‌ها ("age" و "gender") و کلاس‌ها (ژانرهای موسیقی) به عنوان ورودی‌ها به تابع `tree.export_graphviz` داده می‌شوند. پارامتر‌های دیگری نیز برای تنظیم نمودار ارائه شده‌اند مانند نمایش دور، پر شدن نودها و...
 
 
 
