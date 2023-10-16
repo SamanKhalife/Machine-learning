@@ -225,13 +225,13 @@ import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 
 music_data = pd.read csv ( 'music.csv' )
-X = music data.drop(columns= [ 'genre' ])
-y = music datal 'genre']
+X = music data.drop(columns=[ 'genre' ])
+y = music datal[ 'genre']
 
 model = DecisionTreeClassifier ( )
-model.fit (X, Y)
+model.fit (X, y)
 
-predictions = model.predict (( (21, 1]])
+predictions = model.predict ([[21, 1]])
 ```
 این کد به زبان برنامه نویسی Python نوشته شده است و از کتابخانه‌های Pandas و scikit-learn (یک کتابخانه معروف برای یادگیری ماشین در Python) استفاده می‌کند.
 1. **خواندن داده**: با استفاده از Pandas، داده‌ها از یک فایل با فرمت CSV با نام "music.csv" خوانده می‌شوند و در متغیر music_data ذخیره می‌شوند.
@@ -249,15 +249,15 @@ predictions = model.predict (( (21, 1]])
 
 ```Python 
 import pandas as pd
-from sklearn. tree import DecisionTreeClassifier
-from sklearn, model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 music_data = pd.read csv('music. csv')
 X = music_data.drop(columns=['genre'])
 y = music data['genre']
-X_train, X_test, y_train, _test = train_test_split(X, y, test_size=0.2)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
-model = DecisionTreeClassifier ( )
+model = DecisionTreeClassifier( )
 model.fit (X_train, y_train)
 predictions = model.predict(X_test)
 accuracy_score (y_test, predictions)
@@ -291,7 +291,7 @@ datal 'genre')
 # model = DecisionTreeClassifier ( )
 # model.fit (X, y)
 model = joblib. load( 'music-recommender.joblib')
-predictions = model.predict (((21, 1]])
+predictions = model.predict([[21, 1]])
 predictions
 ```
 
@@ -309,15 +309,15 @@ predictions
 
 ```Python 
 music_data = pd.read csv( 'music.csv' )
-X = music_ data.drop (columns= ( 'genre' j)
-y = music data 'genre' J
+X = music_ data.drop (columns= [ 'genre' ])
+y = music data[ 'genre' ]
 
 model = DecisionTreeClassifier ( )
 model.fit (X, y)
 
-tree.export graphviz (model, out_file= 'music-recommender.dot',
-             feature names= ['age', 'gender'],
-             class names=sorted(y.unique ( )),
+tree.export_graphviz (model, out_file='music-recommender.dot',
+             feature_names= ['age', 'gender'],
+             class_names=sorted(y.unique ( )),
              label='all',
              rounded=True,
              filled=True)
